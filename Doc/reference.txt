@@ -1,0 +1,16 @@
+LowPower
+https://www.youtube.com/watch?v=urLSDi7SD8M
+
+Site LCD:
+https://arduino-info.wikispaces.com/LCD-Blue-I2C
+http://blog.f8asb.com/2014/03/01/mise-en-oeuvre-i2c-vers-lcd-carte-chinoise-sur-arduino/
+Tuto
+http://www.naylampmechatronics.com/blog/35_Tutorial--LCD-con-I2C-controla-un-LCD-con-so.html
+http://4tronix.co.uk/arduino/I2C_LCD_Module.php
+
+Pro mini:
+https://electronics.stackexchange.com/questions/96805/how-to-program-arduino-nano-pro-mini-pro-micro-clone-that-has-no-usb-port
+
+HC-12
+http://www.instructables.com/id/Long-Range-18km-Arduino-to-Arduino-Wireless-Commun/
+
