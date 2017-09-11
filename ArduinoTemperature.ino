@@ -3,24 +3,24 @@
 #include <SPI.h>
 #include <SD.h>
 #include <Wire.h>
+#include "var.h"
 #include "bme280SparkAccess.h"
-#include "rtcAccess.h"
+#include "rtcAccessDS3231.h"
 #include "sdAccess.h"
 #include "lcdAccess.h"
 //#include "dth22Access.h"
-#include "var.h"
+
 
 
 #pragma region Global var
 BME280SparkAccess bme;
-rtcAccess rtc;
+rtcAccessDS3231 rtc;
 sdAccess sda;
 lcdAccess lcd;
 //dht22Access dht;
 
 String datestr, timestr;
 float temp, hum, pres, altitude, dewpoint, dhttemp, dhthum;
-DateTime now;
 static unsigned long previousMillis = 0;
 unsigned long currentMillis;
 #pragma endregion 
@@ -58,12 +58,6 @@ void setup() {
 	lcd.begin();
 	lcd.displayText();
 
-#ifdef DEBUG
-	Serial.print(APPNAME);
-	Serial.print(" v");
-	Serial.println(APPVERSION);
-#endif
-
 	BlinkLed(BLINK_INIT, BLINK_INIT_TIME);
 }
 
@@ -84,7 +78,8 @@ void loop() {
 	if (currentMillis - previousMillis >= LOG_FREQUENCY) {
 		previousMillis = currentMillis;
 
-		now = rtc.getDateTime();
+		RtcDateTime now = rtc.getDateTime();
+		Serial.println(rtc.getDateTimeStr());
 		sda.WriteData(temp, hum, pres, altitude, dewpoint, dhttemp, dhthum, now);
 	}
 	delay(ACQ_FREQUENCY);

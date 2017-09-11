@@ -21,17 +21,17 @@ public:
 	~sdAccess() {
 	}
 
-	void WriteData(float temp, float  hum, float  pres, float  altitude, float  dewpoint, float dhttemp, float dhthum, DateTime now) {
+	void WriteData(float temp, float  hum, float  pres, float  altitude, float  dewpoint, float dhttemp, float dhthum, RtcDateTime now) {
 		if (!initMonth)
 		{
-			memMonth = now.month();
+			memMonth = now.Month();
 			initMonth = true;
 		}
 
-		if (now.month() != memMonth)
-			memMonth = now.month();
+		if (now.Month() != memMonth)
+			memMonth = now.Month();
 
-		String strFile = String(now.year()) + String(now.month()) + ".csv";
+		String strFile = String(now.Year()) + String(now.Month()) + ".csv";
 #ifdef DEBUG
 		Serial.print("SD Writing data: ");
 		Serial.println(strFile);
@@ -40,8 +40,8 @@ public:
 		if (!SD.begin(SD_PIN)) {}
 		File myFile = SD.open(strFile, FILE_WRITE);
 		if (myFile) {
-			String datestr = String(now.day()) + "/" + String(now.month()) + "/" + String(now.year());
-			String timestr = String(now.hour()) + ":" + String(now.minute()) + ":" + String(now.second());
+			String datestr = String(now.Day()) + "/" + String(now.Month()) + "/" + String(now.Year());
+			String timestr = String(now.Hour()) + ":" + String(now.Minute()) + ":" + String(now.Second());
 			myFile.print(datestr + " ");
 			myFile.print(timestr);
 			myFile.print(";");
@@ -61,7 +61,6 @@ public:
 #endif
 		}
 	}
-
 };
 
 

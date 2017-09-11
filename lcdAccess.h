@@ -38,7 +38,6 @@ public:
 		lcdi2c.print("c");
 		lcdi2c.setCursor(x, 1);
 		lcdi2c.print("%");
-		
 	}
 
 	void displayData(float temp, float hum, float dhttemp, float dhthum)

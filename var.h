@@ -38,3 +38,4 @@
 
 //DEBUG MODE
 #define DEBUG
+#define INFO
