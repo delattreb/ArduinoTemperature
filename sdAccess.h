@@ -34,7 +34,7 @@ public:
 #endif 
 		}
 	}
-	void WriteData(float temp, float  hum, float  pres, float  altitude, float  dewpoint, float dhttemp, float dhthum, RtcDateTime now) {
+	void WriteData(float sitemp, float sihum, RtcDateTime now) {
 		if (!initMonth)
 		{
 			memMonth = now.Month();
@@ -58,13 +58,9 @@ public:
 			myFile.print(datestr + " ");
 			myFile.print(timestr);
 			myFile.print(";");
-			myFile.print(String(temp));
+			myFile.print(String(sitemp));
 			myFile.print(";");
-			myFile.print(String(hum));
-			myFile.print(";");
-			myFile.print(String(dhttemp));
-			myFile.print(";");
-			myFile.println(String(dhthum));
+			myFile.println(String(sihum));
 
 			myFile.close();
 		}

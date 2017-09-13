@@ -9,9 +9,6 @@
 //Arduino I/O
 #define NB_IO_OUTPUT 8
 
-//DHT22
-#define PINDHT22 2
-
 //LCD
 #define LCD_ADDR 0x3F
 #define LCD_LINE 2
@@ -29,7 +26,7 @@
 #define LED_PIN 2
 
 //SD Access Pin
-#define SD_PIN 10
+#define SD_PIN 4
 
 //File for log
 #define DATAFILE "log.csv"

@@ -24,8 +24,8 @@ C:\Users\Bruno\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MHzatmega328
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\libraries\Wire\src/Wire.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Stream.h \
  C:\Users\Bruno\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MHzatmega328\Release\var.h \
- C:\Users\Bruno\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MHzatmega328\Release\bme280SparkAccess.h \
- C:\Program\ Files\ (x86)\Arduino\libraries\BlueDot_BME280_Library/BlueDot_BME280.h \
+ C:\Users\Bruno\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MHzatmega328\Release\SI7021Access.h \
+ C:\Program\ Files\ (x86)\Arduino\libraries\SI7021-master/SI7021.h \
  C:\Users\Bruno\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MHzatmega328\Release\DS3231Access.h \
  C:\Program\ Files\ (x86)\Arduino\libraries\Rtc_by_Makuna\src/RtcDS3231.h \
  C:\Program\ Files\ (x86)\Arduino\libraries\Rtc_by_Makuna\src/RtcDateTime.h \

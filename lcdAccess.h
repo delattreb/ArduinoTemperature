@@ -40,7 +40,7 @@ public:
 		lcdi2c.print("%");
 	}
 
-	void displayData(float temp, float hum, float dhttemp, float dhthum)
+	void displayData(float temp, float hum)
 	{
 		int x = 8;
 		lcdi2c.setCursor(x, 0);
