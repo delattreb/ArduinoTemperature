@@ -19,7 +19,7 @@
 
 //Acquisition frequency
 #define ACQ_FREQUENCY 5000
-#define LOG_FREQUENCY 120000
+#define LOG_FREQUENCY 10000
 
 #define BLINK_TIME 50
 #define BLINK_INIT 5

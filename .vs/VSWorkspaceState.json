@@ -1,9 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\I2C_scanner",
-    "\\MQTT Adafruit\\mqtt_esp8266"
+    ""
   ],
-  "SelectedNode": "\\I2C_scanner\\I2C_scanner.ino",
+  "SelectedNode": "\\rtcAccessSI7021.h",
   "PreviewInSolutionExplorer": false
 }

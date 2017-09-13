@@ -6,16 +6,16 @@
 
 RtcDS3231<TwoWire> Rtc(Wire);
 
-class rtcAccessDS3231 {
+class DS3231Access {
 
 private:
 
 public:
 
-	rtcAccessDS3231() {
+	DS3231Access() {
 	}
 
-	~rtcAccessDS3231() {
+	~DS3231Access() {
 	}
 
 	void init() {

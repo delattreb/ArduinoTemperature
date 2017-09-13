@@ -26,7 +26,7 @@ C:\Users\Bruno\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MHzatmega328
  C:\Users\Bruno\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MHzatmega328\Release\var.h \
  C:\Users\Bruno\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MHzatmega328\Release\bme280SparkAccess.h \
  C:\Program\ Files\ (x86)\Arduino\libraries\BlueDot_BME280_Library/BlueDot_BME280.h \
- C:\Users\Bruno\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MHzatmega328\Release\rtcAccessDS3231.h \
+ C:\Users\Bruno\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MHzatmega328\Release\DS3231Access.h \
  C:\Program\ Files\ (x86)\Arduino\libraries\Rtc_by_Makuna\src/RtcDS3231.h \
  C:\Program\ Files\ (x86)\Arduino\libraries\Rtc_by_Makuna\src/RtcDateTime.h \
  C:\Program\ Files\ (x86)\Arduino\libraries\Rtc_by_Makuna\src/RtcTemperature.h \

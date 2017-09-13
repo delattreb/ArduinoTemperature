@@ -20,7 +20,20 @@ public:
 
 	~sdAccess() {
 	}
-
+	
+	void init()
+	{
+		if (!SD.begin(SD_PIN)) {
+#ifdef INFO
+			Serial.println("SD KO!");
+#endif 
+		}
+		else {
+#ifdef INFO
+			Serial.println("SD OK");
+#endif 
+		}
+	}
 	void WriteData(float temp, float  hum, float  pres, float  altitude, float  dewpoint, float dhttemp, float dhthum, RtcDateTime now) {
 		if (!initMonth)
 		{
