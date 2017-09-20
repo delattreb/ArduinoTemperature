@@ -1,4 +1,3 @@
-#include "DHT.h"
 #include <PubSubClient.h>
 #include <ESP8266WiFi.h>
 
@@ -7,7 +6,7 @@
 
 #define TOKEN "8GxgPwehBShardbcmElk"
 
-char thingsboardServer[] = "192.168.1.23";
+char thingsboardServer[] = "192.168.1.22";
 
 WiFiClient wifiClient;
 

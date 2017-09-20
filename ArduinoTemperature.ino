@@ -4,16 +4,16 @@
 #include <SD.h>
 #include <Wire.h>
 #include "var.h"
-#include "SI7021Access.h"
-#include "DS3231Access.h"
-#include "sdAccess.h"
-#include "lcdAccess.h"
+#include "libSI7021.h"
+#include "libDS3231.h"
+#include "libSD.h"
+#include "libLCD.h"
 
 #pragma region Global var
-DS3231Access rtc;
-sdAccess sda;
-lcdAccess lcd;
-SI7021Access si7021;
+libDS3231 rtc;
+libSD sda;
+libLCD lcd;
+libSI7021 si7021;
 
 String datestr, timestr;
 float sitemp, sihum;
@@ -46,11 +46,14 @@ void setup() {
 #endif
 	SPI.begin();
 	Wire.begin();
+	Wire.setClock(400000); // 400kHz I2C clock. 
+
+	sda.init();
 	rtc.init();
 	si7021.init();
 	lcd.begin();
 	lcd.displayText();
-	sda.init();
+
 
 	BlinkLed(BLINK_INIT, BLINK_INIT_TIME);
 }
@@ -69,10 +72,10 @@ void loop() {
 	/* Réalise une prise de mesure toutes les DELAY_BETWEEN_MEASURES millisecondes */
 	if (currentMillis - previousMillis >= LOG_FREQUENCY) {
 		previousMillis = currentMillis;
-
+		/*
 		RtcDateTime now = rtc.getDateTime();
-		Serial.println(rtc.getDateTimeStr());
-		sda.WriteData(sitemp, sihum, now);
+		Serial.println(rtc.getDateTimeStr());*/
+		//sda.WriteData(sitemp, sihum, rtc.getDateTimeStr());
 	}
 	delay(ACQ_FREQUENCY);
 }

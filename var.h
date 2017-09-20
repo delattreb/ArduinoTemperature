@@ -15,7 +15,7 @@
 #define LCD_ROW 16
 
 //Acquisition frequency
-#define ACQ_FREQUENCY 5000
+#define ACQ_FREQUENCY 3000
 #define LOG_FREQUENCY 10000
 
 #define BLINK_TIME 50
@@ -26,10 +26,10 @@
 #define LED_PIN 2
 
 //SD Access Pin
-#define SD_PIN 4
+#define SD_PIN 10
 
 //File for log
-#define DATAFILE "log.csv"
+#define DATAFILE "temp.csv"
 
 #define SERIAL_BAUD 115200
 
