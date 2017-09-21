@@ -3,6 +3,8 @@
 #include <SPI.h>
 #include <SD.h>
 #include <Wire.h>
+#include <SoftwareSerial.h>
+
 #include "var.h"
 #include "libSI7021.h"
 #include "libDS3231.h"
@@ -14,6 +16,7 @@ libDS3231 rtc;
 libSD sda;
 libLCD lcd;
 libSI7021 si7021;
+SoftwareSerial esp8266(RX_PIN, TX_PIN);
 
 String datestr, timestr;
 float sitemp, sihum;
@@ -38,22 +41,24 @@ void BlinkLed(int cpt, int time) {
 // Setup
 //
 void setup() {
+	esp8266.begin(SERIAL_BAUD);
+	delay(10);
+
 #ifdef DEBUG
 	Serial.begin(SERIAL_BAUD);
+	delay(10);
 	while (!Serial) {
 		; //Needed for native USB port only
 	}
 #endif
 	SPI.begin();
 	Wire.begin();
-	Wire.setClock(400000); // 400kHz I2C clock. 
 
-	sda.init();
+	sda.init(SD_PIN, DATAFILE);
 	rtc.init();
 	si7021.init();
 	lcd.begin();
 	lcd.displayText();
-
 
 	BlinkLed(BLINK_INIT, BLINK_INIT_TIME);
 }
@@ -68,14 +73,16 @@ void loop() {
 	sihum = si7021.getHumidity();
 	lcd.displayData(sitemp, sihum);
 	BlinkLed(1, BLINK_TIME);
-	
-	/* Réalise une prise de mesure toutes les DELAY_BETWEEN_MEASURES millisecondes */
+
 	if (currentMillis - previousMillis >= LOG_FREQUENCY) {
+#ifdef DEBUG
+		Serial.println("Send to ESP8266");
+#endif
+		esp8266.println(sitemp);
+
 		previousMillis = currentMillis;
-		/*
 		RtcDateTime now = rtc.getDateTime();
-		Serial.println(rtc.getDateTimeStr());*/
-		//sda.WriteData(sitemp, sihum, rtc.getDateTimeStr());
+		sda.WriteDataTemp(sitemp, sihum, rtc.getDateTimeStr());
 	}
 	delay(ACQ_FREQUENCY);
 }

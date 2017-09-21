@@ -2,12 +2,9 @@
 // Created by Bruno on 30/06/2017.
 //
 
-//Software Version
-#define APPNAME "Arduino Temperature"
-#define APPVERSION "1.4"
-
-//Arduino I/O
-#define NB_IO_OUTPUT 8
+//ESP8266 Wifi
+#define RX_PIN 6
+#define TX_PIN 5
 
 //LCD
 #define LCD_ADDR 0x3F
