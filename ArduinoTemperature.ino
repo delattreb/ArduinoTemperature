@@ -74,11 +74,33 @@ void loop() {
 	lcd.displayData(sitemp, sihum);
 	BlinkLed(1, BLINK_TIME);
 
+	// Check WiFi connexion
+	if (esp8266.available()) {
+#ifdef DEBUG
+		Serial.println("Receive data");
+#endif 
+		String wific = esp8266.readString();
+		if (wific.equalsIgnoreCase("WKO") == 0)
+			lcd.displayWiFiConnexion("!");
+		if (wific.equalsIgnoreCase("WOK") == 0)
+			lcd.displayWiFiConnexion("*");
+	}
+
+	// Acquisition
 	if (currentMillis - previousMillis >= LOG_FREQUENCY) {
+		String dataT = "T" + String(sitemp);
+		String dataH = "H" + String(sihum);
 #ifdef DEBUG
 		Serial.println("Send to ESP8266");
+		Serial.print("Temperature: ");
+		Serial.println(dataT);
+		Serial.print("Humidity: ");
+		Serial.println(dataH);
 #endif
-		esp8266.println(sitemp);
+		
+		esp8266.println(dataT);
+		delay(2000);
+		esp8266.println(dataH);
 
 		previousMillis = currentMillis;
 		RtcDateTime now = rtc.getDateTime();
