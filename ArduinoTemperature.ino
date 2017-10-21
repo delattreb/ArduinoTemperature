@@ -19,10 +19,10 @@ libSI7021 si7021;
 SoftwareSerial esp8266(RX_PIN, TX_PIN);
 
 String datestr, timestr;
-float sitemp, sihum;
 static unsigned long previousMillis = 0;
 unsigned long currentMillis;
-#pragma endregion 
+float sitemp, sihum; 
+#pragma endregion
 
 //
 // BlinkLed
@@ -54,7 +54,7 @@ void setup() {
 	SPI.begin();
 	Wire.begin();
 
-	sda.init(SD_PIN, DATAFILE);
+	sda.init();
 	rtc.init();
 	si7021.init();
 	lcd.begin();
@@ -73,12 +73,8 @@ void loop() {
 	sihum = si7021.getHumidity();
 	lcd.displayData(sitemp, sihum);
 	BlinkLed(1, BLINK_TIME);
-
 	// Check WiFi connexion
 	if (esp8266.available()) {
-#ifdef DEBUG
-		Serial.println("Receive data");
-#endif 
 		String wific = esp8266.readString();
 		if (wific.equalsIgnoreCase("WKO") == 0)
 			lcd.displayWiFiConnexion("!");
@@ -88,23 +84,23 @@ void loop() {
 
 	// Acquisition
 	if (currentMillis - previousMillis >= LOG_FREQUENCY) {
-		String dataT = "T" + String(sitemp);
-		String dataH = "H" + String(sihum);
+		String dataT = "T" + String(DEVICE_NUMBER) + ':' + String(sitemp);
+		String dataH = "H" + String(DEVICE_NUMBER) + ':' + String(sihum);
 #ifdef DEBUG
-		Serial.println("Send to ESP8266");
-		Serial.print("Temperature: ");
 		Serial.println(dataT);
-		Serial.print("Humidity: ");
 		Serial.println(dataH);
 #endif
-		
+
 		esp8266.println(dataT);
 		delay(2000);
 		esp8266.println(dataH);
 
 		previousMillis = currentMillis;
 		RtcDateTime now = rtc.getDateTime();
-		sda.WriteDataTemp(sitemp, sihum, rtc.getDateTimeStr());
+		String fileName;
+		fileName = now.Month() + now.Year() + ".csv";
+
+		sda.WriteDataTemp(sitemp, sihum, rtc.getDateTimeStr(), fileName);
 	}
 	delay(ACQ_FREQUENCY);
 }

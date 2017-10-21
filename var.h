@@ -2,6 +2,13 @@
 // Created by Bruno on 30/06/2017.
 //
 
+//DEBUG MODE
+#define DEBUG
+#define INFO
+
+//Device 1:cave 2:séjour
+#define DEVICE_NUMBER 1
+
 //ESP8266 Wifi
 #define RX_PIN 6
 #define TX_PIN 5
@@ -13,7 +20,7 @@
 
 //Acquisition frequency
 #define ACQ_FREQUENCY 3000
-#define LOG_FREQUENCY 10000
+#define LOG_FREQUENCY 120000
 
 #define BLINK_TIME 50
 #define BLINK_INIT 5
@@ -23,13 +30,8 @@
 #define LED_PIN 2
 
 //SD Access Pin
-#define SD_PIN 10
+#define SD_CS_PIN 10
 
-//File for log
-#define DATAFILE "temp.csv"
-
+//Serial speed
 #define SERIAL_BAUD 115200
 
-//DEBUG MODE
-#define DEBUG
-#define INFO

@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArduinoTemperature", "Ardui
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArduinoLibraries", "..\ArduinoLibraries\ArduinoLibraries.vcxitems", "{1B7FCBD7-384F-4893-9701-5F085C6FD390}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arduino ESP8266", "..\ArduinoESP8266\Arduino ESP8266.vcxproj", "{C5F80730-F44F-4478-BDAE-6634EFC2CA88}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\ArduinoLibraries\ArduinoLibraries.vcxitems*{1b7fcbd7-384f-4893-9701-5f085c6fd390}*SharedItemsImports = 9
@@ -21,6 +23,10 @@ Global
 		{AD2C38BF-4F48-4F03-8FF8-111DF93CC2C9}.Debug|x86.Build.0 = Debug|Win32
 		{AD2C38BF-4F48-4F03-8FF8-111DF93CC2C9}.Release|x86.ActiveCfg = Release|Win32
 		{AD2C38BF-4F48-4F03-8FF8-111DF93CC2C9}.Release|x86.Build.0 = Release|Win32
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|x86.ActiveCfg = Debug|Win32
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|x86.Build.0 = Debug|Win32
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.ActiveCfg = Release|Win32
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
