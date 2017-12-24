@@ -3,12 +3,12 @@
 //
 
 //DEBUG MODE
-#define DEBUG
-#define INFO
+//#define DEBUG
+//#define INFO
 
-//Device 1:cave 2:séjour
-#define DEVICE_NUMBER 1
-
+//Device 1:cave 2:séjour 3:chambre
+#define DEVICE_NUMBER 2
+#define MAXDEVICE 3
 //ESP8266 Wifi
 #define RX_PIN 6
 #define TX_PIN 5

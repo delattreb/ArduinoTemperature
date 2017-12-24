@@ -12,8 +12,8 @@
 #include "libLCD.h"
 
 #pragma region Global var
-libDS3231 rtc;
-libSD sda;
+//libDS3231 rtc;
+//libSD sda;
 libLCD lcd;
 libSI7021 si7021;
 SoftwareSerial esp8266(RX_PIN, TX_PIN);
@@ -21,7 +21,7 @@ SoftwareSerial esp8266(RX_PIN, TX_PIN);
 String datestr, timestr;
 static unsigned long previousMillis = 0;
 unsigned long currentMillis;
-float sitemp, sihum; 
+float sitemp, sihum, offsetTemp[MAXDEVICE] = { 0.0,0.0,0.0 }, offsetHum[MAXDEVICE] = { 0.0,0.0,0.0 }; // Offet for devices
 #pragma endregion
 
 //
@@ -54,8 +54,8 @@ void setup() {
 	SPI.begin();
 	Wire.begin();
 
-	sda.init();
-	rtc.init();
+	//	sda.init();
+	//	rtc.init(false);
 	si7021.init();
 	lcd.begin();
 	lcd.displayText();
@@ -69,8 +69,8 @@ void setup() {
 void loop() {
 	currentMillis = millis();
 
-	sitemp = si7021.getTemperature();
-	sihum = si7021.getHumidity();
+	sitemp = si7021.getTemperature() + offsetTemp[DEVICE_NUMBER - 1];
+	sihum = si7021.getHumidity() + offsetHum[DEVICE_NUMBER - 1];
 	lcd.displayData(sitemp, sihum);
 	BlinkLed(1, BLINK_TIME);
 	// Check WiFi connexion
@@ -96,11 +96,11 @@ void loop() {
 		esp8266.println(dataH);
 
 		previousMillis = currentMillis;
-		RtcDateTime now = rtc.getDateTime();
-		String fileName;
-		fileName = now.Month() + now.Year() + ".csv";
+		//RtcDateTime now = rtc.getDateTime();
+		//String fileName;
+		//fileName = now.Month() + now.Year() + ".csv";
 
-		sda.WriteDataTemp(sitemp, sihum, rtc.getDateTimeStr(), fileName);
+		//sda.WriteDataTemp(sitemp, sihum, rtc.getDateTimeStr(), fileName);
 	}
 	delay(ACQ_FREQUENCY);
 }
