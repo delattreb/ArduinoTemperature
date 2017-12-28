@@ -21,21 +21,8 @@ SoftwareSerial esp8266(RX_PIN, TX_PIN);
 String datestr, timestr;
 static unsigned long previousMillis = 0;
 unsigned long currentMillis;
-float sitemp, sihum, offsetTemp[MAXDEVICE] = { 0.0,0.0,0.0 }, offsetHum[MAXDEVICE] = { 0.0,0.0,0.0 }; // Offet for devices
+float sitemp, sihum, offsetTemp[MAXDEVICE] = { -0.0,-0.0,-0.0 }, offsetHum[MAXDEVICE] = { -0.0,-0.0,-0.0 }; // Offet for devices
 #pragma endregion
-
-//
-// BlinkLed
-//
-void BlinkLed(int cpt, int time) {
-	for (int i = 1; i <= cpt; i++)
-	{
-		digitalWrite(LED_PIN, HIGH);
-		delay(time);
-		digitalWrite(LED_PIN, LOW);
-		delay(time);
-	}
-}
 
 //
 // Setup
@@ -59,8 +46,6 @@ void setup() {
 	si7021.init();
 	lcd.begin();
 	lcd.displayText();
-
-	BlinkLed(BLINK_INIT, BLINK_INIT_TIME);
 }
 
 //
@@ -72,7 +57,7 @@ void loop() {
 	sitemp = si7021.getTemperature() + offsetTemp[DEVICE_NUMBER - 1];
 	sihum = si7021.getHumidity() + offsetHum[DEVICE_NUMBER - 1];
 	lcd.displayData(sitemp, sihum);
-	BlinkLed(1, BLINK_TIME);
+
 	// Check WiFi connexion
 	if (esp8266.available()) {
 		String wific = esp8266.readString();
