@@ -34,6 +34,6 @@ C:\Users\Bruno\ DELATTRE\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MH
  C:\Users\Bruno\ DELATTRE\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MHzatmega328\Release\Libraries/DS3231/src/RtcUtility.h \
  C:\Users\Bruno\ DELATTRE\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MHzatmega328\Release\libSD.h \
  C:\Users\Bruno\ DELATTRE\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MHzatmega328\Release\libLCD.h \
- C:\Program\ Files\ (x86)\Arduino\libraries\NewliquidCrystal/LiquidCrystal_I2C.h \
- C:\Program\ Files\ (x86)\Arduino\libraries\NewliquidCrystal/I2CIO.h \
- C:\Program\ Files\ (x86)\Arduino\libraries\NewliquidCrystal/LCD.h
+ C:\Users\Bruno\ DELATTRE\AppData\Local\Temp\VMBuilds\ArduinoTemperature\pro_16MHzatmega328\Release\Libraries/NewliquidCrystal/LiquidCrystal_I2C.h \
+ C:\Program\ Files\ (x86)\Arduino\libraries\_NewliquidCrystal/I2CIO.h \
+ C:\Program\ Files\ (x86)\Arduino\libraries\_NewliquidCrystal/LCD.h
