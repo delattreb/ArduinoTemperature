@@ -21,7 +21,7 @@ SoftwareSerial esp8266(RX_PIN, TX_PIN);
 String datestr, timestr;
 static unsigned long previousMillis = 0;
 unsigned long currentMillis;
-float sitemp, sihum, offsetTemp[MAXDEVICE] = { -0.0,-3.4,-0.0,-0.0,-0.0 }, offsetHum[MAXDEVICE] = { -0.0,-13.0,-0.0,-0.0,-0.0 }; // Offet for devices
+float sitemp, sihum, offsetTemp[MAXDEVICE] = { -3.5,-2.9,-3.0,-0.0,-0.0 }, offsetHum[MAXDEVICE] = { -18.0,-17.0,-13.0,-0.0,-0.0 }; // Offet for devices
 #pragma endregion
 
 //
