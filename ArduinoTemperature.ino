@@ -40,7 +40,6 @@ void setup() {
 #endif
 	SPI.begin();
 	Wire.begin();
-
 	//	sda.init();
 	//	rtc.init(false);
 	si7021.init();
@@ -65,6 +64,7 @@ void loop() {
 			lcd.displayWiFiConnexion("!");
 		if (wific.equalsIgnoreCase("WOK") == 0)
 			lcd.displayWiFiConnexion("*");
+
 	}
 
 	// Acquisition
