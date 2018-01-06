@@ -1,0 +1,6 @@
+[submodule "ArduinoLibraries"]
+	path = ArduinoLibraries
+	url = https://github.com/delattreb/ArduinoLibraries
+[submodule "ArduinoESP8266WifiManager-"]
+	path = ArduinoESP8266WifiManager-
+	url = https://github.com/delattreb/ArduinoESP8266WifiManager-
