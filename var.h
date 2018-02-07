@@ -15,6 +15,7 @@
 
 //LCD
 #define LCD_ADDR 0x3F
+//#define LCD_ADDR 0x27
 #define LCD_LINE 2
 #define LCD_ROW 16
 

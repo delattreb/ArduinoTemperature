@@ -25,7 +25,8 @@ float sitemp, sihum, offsetTemp[MAXDEVICE] = { -3.5,-2.9,-3.0,-0.0,-0.0 }, offse
 #pragma endregion
 
 //
-// Setup
+//* Setup
+// param: 
 //
 void setup() {
 	esp8266.begin(SERIAL_BAUD);
@@ -64,7 +65,8 @@ void loop() {
 			lcd.displayWiFiConnexion("!");
 		if (wific.equalsIgnoreCase("WOK") == 0)
 			lcd.displayWiFiConnexion("*");
-
+		if (wific.startsWith("R", 0))
+			lcd.displayWiFiDbSignal(wific.substring(1, wific.length() - 1));
 	}
 
 	// Acquisition
@@ -84,7 +86,6 @@ void loop() {
 		//RtcDateTime now = rtc.getDateTime();
 		//String fileName;
 		//fileName = now.Month() + now.Year() + ".csv";
-
 		//sda.WriteDataTemp(sitemp, sihum, rtc.getDateTimeStr(), fileName);
 	}
 	delay(ACQ_FREQUENCY);
