@@ -46,6 +46,7 @@ void setup() {
 	si7021.init();
 	lcd.begin();
 	lcd.displayText();
+	lcd.displayWiFiConnexion("!");
 }
 
 //
@@ -61,12 +62,12 @@ void loop() {
 	// Check WiFi connexion
 	if (esp8266.available()) {
 		String wific = esp8266.readString();
-		if (wific.equalsIgnoreCase("WKO") == 0)
+		if (wific.startsWith("K", 0))
 			lcd.displayWiFiConnexion("!");
-		if (wific.equalsIgnoreCase("WOK") == 0)
+		if (wific.startsWith("O", 0))
 			lcd.displayWiFiConnexion("*");
-		if (wific.startsWith("R", 0))
-			lcd.displayWiFiDbSignal(wific.substring(1, wific.length() - 1));
+		if (wific.startsWith("S", 0))
+			lcd.displayWiFiDbSignal(wific.substring(1, 4));
 	}
 
 	// Acquisition

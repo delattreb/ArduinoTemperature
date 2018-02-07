@@ -20,7 +20,7 @@
 #define LCD_ROW 16
 
 //Acquisition frequency
-#define ACQ_FREQUENCY 3000
+#define ACQ_FREQUENCY 1000
 #define LOG_FREQUENCY 120000
 
 #define BLINK_TIME 50
@@ -34,5 +34,5 @@
 #define SD_CS_PIN 10
 
 //Serial speed
-#define SERIAL_BAUD 115200
+#define SERIAL_BAUD 9600
 
