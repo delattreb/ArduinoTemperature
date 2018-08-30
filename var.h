@@ -7,7 +7,7 @@
 //#define INFO
 
 //Device 1:cave 2:séjour 3:chambre
-#define DEVICE_NUMBER 1
+#define DEVICE_NUMBER 3
 #define MAXDEVICE 5
 //ESP8266 Wifi
 #define RX_PIN 6
@@ -21,7 +21,7 @@
 
 //Acquisition frequency
 #define ACQ_FREQUENCY 1000
-#define LOG_FREQUENCY 120000
+#define LOG_FREQUENCY 240000  // 4 minutes
 
 #define BLINK_TIME 50
 #define BLINK_INIT 5
