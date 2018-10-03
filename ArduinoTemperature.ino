@@ -1,14 +1,14 @@
 #include <Arduino.h>
 
 #include <SPI.h>
-#include <SD.h>
+//#include <SD.h>
 #include <Wire.h>
 #include <SoftwareSerial.h>
 
 #include "var.h"
 #include "libSI7021.h"
-#include "libDS3231.h"
-#include "libSD.h"
+//#include "libDS3231.h"
+//#include "libSD.h"
 #include "libLCD.h"
 
 #pragma region Global var
