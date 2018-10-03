@@ -6,8 +6,8 @@
 //#define DEBUG
 //#define INFO
 
-//Device 1:cave 2:séjour 3:chambre
-#define DEVICE_NUMBER 1
+//Device 1:cave 2:séjour 3:chambre 4:nomade
+#define DEVICE_NUMBER 4
 #define MAXDEVICE 5
 //ESP8266 Wifi
 #define RX_PIN 6
