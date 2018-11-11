@@ -1,19 +1,10 @@
 #include <Arduino.h>
-
-#include <SPI.h>
-//#include <SD.h>
-#include <Wire.h>
 #include <SoftwareSerial.h>
-
 #include "var.h"
 #include "libSI7021.h"
-//#include "libDS3231.h"
-//#include "libSD.h"
 #include "libLCD.h"
 
 #pragma region Global var
-//libDS3231 rtc;
-//libSD sda;
 libLCD lcd;
 libSI7021 si7021;
 SoftwareSerial esp8266(RX_PIN, TX_PIN);
@@ -30,23 +21,19 @@ float sitemp, sihum, offsetTemp[MAXDEVICE] = { -3.5,-2.9,-3.0,-0.0,-0.0 }, offse
 //
 void setup() {
 	esp8266.begin(SERIAL_BAUD);
+	while (!esp8266) continue;
 	delay(10);
 
 #ifdef DEBUG
 	Serial.begin(SERIAL_BAUD);
 	delay(10);
-	while (!Serial) {
-		; //Needed for native USB port only
-	}
+	while (!Serial) continue;
 #endif
-	SPI.begin();
-	Wire.begin();
-	//	sda.init();
-	//	rtc.init(false);
 	si7021.init();
 	lcd.begin();
 	lcd.displayText();
-	lcd.displayWiFiConnexion("!");
+	lcd.displayWiFiKo();
+	lcd.displayMQTTKo();
 }
 
 //
@@ -62,10 +49,14 @@ void loop() {
 	// Check WiFi connexion
 	if (esp8266.available()) {
 		String wific = esp8266.readString();
-		if (wific.startsWith("K", 0))
-			lcd.displayWiFiConnexion("!");
-		if (wific.startsWith("O", 0))
-			lcd.displayWiFiConnexion("*");
+		if (wific.startsWith("WK", 0))
+			lcd.displayWiFiKo();
+		if (wific.startsWith("WO", 0))
+			lcd.displayWiFiOk();
+		if (wific.startsWith("MK", 0))
+			lcd.displayMQTTKo();
+		if (wific.startsWith("MO", 0))
+			lcd.displayMQTTOk();
 		if (wific.startsWith("S", 0))
 			lcd.displayWiFiDbSignal(wific.substring(1, 4));
 	}
@@ -78,16 +69,10 @@ void loop() {
 		Serial.println(dataT);
 		Serial.println(dataH);
 #endif
-
 		esp8266.println(dataT);
-		delay(2000);
+		delay(SERIAL_DELAY);
 		esp8266.println(dataH);
-
 		previousMillis = currentMillis;
-		//RtcDateTime now = rtc.getDateTime();
-		//String fileName;
-		//fileName = now.Month() + now.Year() + ".csv";
-		//sda.WriteDataTemp(sitemp, sihum, rtc.getDateTimeStr(), fileName);
 	}
 	delay(ACQ_FREQUENCY);
 }

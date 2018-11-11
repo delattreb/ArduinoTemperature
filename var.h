@@ -3,8 +3,8 @@
 //
 
 //DEBUG MODE
-//#define DEBUG
-//#define INFO
+#define DEBUG
+#define INFO
 
 //Device 1:cave 2:séjour 3:chambre 4:nomade
 #define DEVICE_NUMBER 4
@@ -22,6 +22,7 @@
 //Acquisition frequency
 #define ACQ_FREQUENCY 1000
 #define LOG_FREQUENCY 240000  // 4 minutes
+#define SERIAL_DELAY 1000
 
 #define BLINK_TIME 50
 #define BLINK_INIT 5
