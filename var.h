@@ -6,8 +6,12 @@
 #define DEBUG
 #define INFO
 
+//Serial speed
+#define SERIAL_BAUD 9600
+
 //Device 1:cave 2:séjour 3:chambre 4:nomade
 #define DEVICE_NUMBER 4
+
 #define MAXDEVICE 5
 //ESP8266 Wifi
 #define RX_PIN 6
@@ -33,7 +37,3 @@
 
 //SD Access Pin
 #define SD_CS_PIN 10
-
-//Serial speed
-#define SERIAL_BAUD 9600
-
