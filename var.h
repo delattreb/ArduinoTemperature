@@ -3,8 +3,8 @@
 //
 
 //DEBUG MODE
-#define DEBUG
-#define INFO
+//#define DEBUG
+//#define INFO
 
 //Serial speed
 #define SERIAL_BAUD 9600
