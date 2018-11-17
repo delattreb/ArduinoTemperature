@@ -9,8 +9,8 @@
 //Serial speed
 #define SERIAL_BAUD 9600
 
-//Device 1:cave 2:séjour 3:chambre 4:nomade
-#define DEVICE_NUMBER 4
+//Device 1:cave 2:séjour 3:bureau 4:nomade
+#define DEVICE_NUMBER 1
 
 #define MAXDEVICE 5
 //ESP8266 Wifi
